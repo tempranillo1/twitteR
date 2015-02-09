@@ -3,15 +3,7 @@ library(dplyr)
 library(stringi)
 
 
-credentials <- c(
-  "twitter_api_key=nnvIj82KUaUfBQGHAhU1iOLgs",
-  "twitter_api_secret=Bu1CajHOaE4OnqhTHFCD53e5JM6vW9LM1b2MypfczesTE6RXvf",
-  "twitter_access_token=2221658849-aCukIh8jAiWBNQk4MRXkmaADTYfa0eO2CRWfrWL",
-  "twitter_access_token_secret=NwvueZ4U1ZGaaFWtROf4MnQ3N21sAYNzZHO1BMBqt1DoW"
-)
 
-fname <- paste0(normalizePath("~/"),".Renviron")
-writeLines(credentials, fname)
 
 #browseURL(fname)
 
