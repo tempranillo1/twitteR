@@ -2,11 +2,6 @@ library(twitteR)
 library(dplyr)
 library(stringi)
 
-
-
-
-#browseURL(fname)
-
 api_key <- Sys.getenv("twitter_api_key")
 api_secret <- Sys.getenv("twitter_api_secret")
 access_token <- Sys.getenv("twitter_access_token")
