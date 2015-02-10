@@ -1,6 +1,9 @@
 library(twitteR)
 library(dplyr)
 library(stringi)
+# devtools::install_github("rstudio/leaflet")
+library(leaflet)
+
 
 api_key <- Sys.getenv("twitter_api_key")
 api_secret <- Sys.getenv("twitter_api_secret")
@@ -27,11 +30,10 @@ craft_beer_dt <- t(sapply(craft_beer, function(x) c(latitude = x$latitude,
                                                     date = as.character(as.Date(x$created)), 
                                                     text =  x$text ))) %>% tbl_dt()
 
-m <- leaflet() %>% addTiles()
 
-(m2 <- m %>%
+m <- leaflet() %>% addTiles()%>%
    setView(lng = -74.005973, lat = 40.714353, zoom = 4) %>%
   addCircleMarkers(craft_beer_dt$longitude, craft_beer_dt$latitude, 
                    popup = htmltools::htmlEscape(iconv(craft_beer_dt$text)),
-                   radius = 0.1, color = "red", fillOpacity = 0.01))
-
+                   radius = 0.1, color = "red", fillOpacity = 0.01)
+print(m)
